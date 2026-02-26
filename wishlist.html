@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Wishlist - LUXE Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="wishlist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header header-solid" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">LUXE</span>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="nav-icon search-btn" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="wishlist.html" class="nav-icon active" aria-label="Wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span class="wishlist-count" id="wishlist-count">0</span>
+                </a>
+                <a href="login.html" class="nav-icon" aria-label="Account">
+                    <i class="fas fa-user"></i>
+                </a>
+                <button class="nav-icon cart-btn" id="cart-btn" aria-label="Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Wishlist</span>
+            </div>
+            <h1 class="page-title">My Wishlist</h1>
+            <p class="page-description">Items you've saved for later</p>
+        </div>
+    </section>
+
+    <!-- Wishlist Section -->
+    <section class="wishlist-section">
+        <div class="container">
+            <!-- Empty State -->
+            <div class="empty-wishlist" id="empty-wishlist" style="display: none;">
+                <div class="empty-icon">
+                    <i class="far fa-heart"></i>
+                </div>
+                <h2>Your wishlist is empty</h2>
+                <p>Save items you love by clicking the heart icon on any product</p>
+                <a href="shop.html" class="btn btn-primary">
+                    Start Shopping
+                </a>
+            </div>
+
+            <!-- Wishlist Items -->
+            <div class="wishlist-content" id="wishlist-content">
+                <div class="wishlist-header">
+                    <span id="wishlist-total">0 items</span>
+                    <button class="clear-wishlist" id="clear-wishlist">
+                        <i class="fas fa-trash"></i>
+                        Clear All
+                    </button>
+                </div>
+                <div class="wishlist-grid" id="wishlist-grid">
+                    <!-- Items will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recently Viewed -->
+    <section class="recently-viewed-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recently Viewed</h2>
+            </div>
+            <div class="products-grid" id="recently-viewed">
+                <!-- Products will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <a href="index.html" class="footer-logo">LUXE</a>
+                        <p class="footer-description">Discover the latest trends in fashion and elevate your style with our premium collection.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/in/surajnandan" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Customer Service</h4>
+                        <ul class="footer-links">
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="returns.html">Shipping & Returns</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="terms.html">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact Info</h4>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-map-marker-alt"></i> Kishanganj, Bihar, India</li>
+                            <li><i class="fas fa-phone"></i> +91 6203484989</li>
+                            <li><i class="fas fa-envelope"></i> surajnandan78@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 LUXE Store by Suraj Nandan. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="cart-close" id="cart-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal">₹0</span>
+            </div>
+            <a href="cart.html" class="btn btn-outline btn-block">View Cart</a>
+            <a href="checkout.html" class="btn btn-primary btn-block">Checkout</a>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script>
+        // Wishlist Page JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            loadWishlist();
+            loadRecentlyViewed();
+            
+            // Clear all button
+            document.getElementById('clear-wishlist').addEventListener('click', () => {
+                if (confirm('Are you sure you want to clear your wishlist?')) {
+                    localStorage.setItem('luxeWishlist', '[]');
+                    loadWishlist();
+                    updateWishlistCount();
+                }
+            });
+        });
+        
+        function loadWishlist() {
+            const wishlist = JSON.parse(localStorage.getItem('luxeWishlist')) || [];
+            const emptyState = document.getElementById('empty-wishlist');
+            const content = document.getElementById('wishlist-content');
+            const grid = document.getElementById('wishlist-grid');
+            const total = document.getElementById('wishlist-total');
+            
+            if (wishlist.length === 0) {
+                emptyState.style.display = 'block';
+                content.style.display = 'none';
+                return;
+            }
+            
+            emptyState.style.display = 'none';
+            content.style.display = 'block';
+            total.textContent = `${wishlist.length} item${wishlist.length > 1 ? 's' : ''}`;
+            
+            grid.innerHTML = wishlist.map(item => `
+                <div class="wishlist-item" data-id="${item.id}">
+                    <div class="item-image">
+                        <a href="product.html?id=${item.id}">
+                            <img src="${item.image}" alt="${item.name}">
+                        </a>
+                        <button class="remove-btn" title="Remove from wishlist">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="item-details">
+                        <span class="item-category">${item.category}</span>
+                        <h3 class="item-name">
+                            <a href="product.html?id=${item.id}">${item.name}</a>
+                        </h3>
+                        <div class="item-price">
+                            <span class="current-price">${formatPrice(item.price)}</span>
+                            ${item.originalPrice ? `<span class="original-price">${formatPrice(item.originalPrice)}</span>` : ''}
+                        </div>
+                        <div class="item-stock ${item.inStock !== false ? 'in-stock' : 'out-of-stock'}">
+                            <i class="fas fa-${item.inStock !== false ? 'check-circle' : 'times-circle'}"></i>
+                            ${item.inStock !== false ? 'In Stock' : 'Out of Stock'}
+                        </div>
+                        <div class="item-actions">
+                            <button class="btn btn-primary add-to-cart-btn" ${item.inStock === false ? 'disabled' : ''}>
+                                <i class="fas fa-shopping-bag"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Add event listeners
+            grid.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const item = e.target.closest('.wishlist-item');
+                    const id = parseInt(item.dataset.id);
+                    removeFromWishlist(id);
+                    item.style.animation = 'fadeOut 0.3s ease forwards';
+                    setTimeout(() => {
+                        loadWishlist();
+                        updateWishlistCount();
+                    }, 300);
+                });
+            });
+            
+            grid.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const item = e.target.closest('.wishlist-item');
+                    const id = parseInt(item.dataset.id);
+                    const product = wishlist.find(p => p.id === id);
+                    
+                    if (product) {
+                        addToCart(product);
+                        showToast('success', 'Added to Cart', `${product.name} has been added to your cart.`);
+                    }
+                });
+            });
+        }
+        
+        function removeFromWishlist(id) {
+            let wishlist = JSON.parse(localStorage.getItem('luxeWishlist')) || [];
+            wishlist = wishlist.filter(item => item.id !== id);
+            localStorage.setItem('luxeWishlist', JSON.stringify(wishlist));
+        }
+        
+        function loadRecentlyViewed() {
+            const container = document.getElementById('recently-viewed');
+            const recentlyViewed = JSON.parse(localStorage.getItem('luxeRecentlyViewed')) || [];
+            
+            if (recentlyViewed.length === 0) {
+                container.closest('.recently-viewed-section').style.display = 'none';
+                return;
+            }
+            
+            container.innerHTML = recentlyViewed.slice(0, 4).map(product => `
+                <div class="product-card" data-product-id="${product.id}">
+                    <div class="product-image">
+                        <a href="product.html?id=${product.id}">
+                            <img src="${product.image}" alt="${product.name}">
+                        </a>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">${product.category}</span>
+                        <h3 class="product-name">
+                            <a href="product.html?id=${product.id}">${product.name}</a>
+                        </h3>
+                        <div class="product-price">
+                            <span class="current-price">${formatPrice(product.price)}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function updateWishlistCount() {
+            const wishlist = JSON.parse(localStorage.getItem('luxeWishlist')) || [];
+            document.getElementById('wishlist-count').textContent = wishlist.length;
+        }
+        
+        // Toast function
+        function showToast(type, title, message) {
+            const container = document.getElementById('toast-container');
+            const icons = { success: 'fa-check', error: 'fa-times', info: 'fa-info' };
+            
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.innerHTML = `
+                <div class="toast-icon"><i class="fas ${icons[type]}"></i></div>
+                <div class="toast-content">
+                    <div class="toast-title">${title}</div>
+                    <div class="toast-message">${message}</div>
+                </div>
+                <button class="toast-close"><i class="fas fa-times"></i></button>
+            `;
+            
+            container.appendChild(toast);
+            
+            toast.querySelector('.toast-close').addEventListener('click', () => {
+                toast.remove();
+            });
+            
+            setTimeout(() => toast.remove(), 4000);
+        }
+        
+        // Update count on load
+        updateWishlistCount();
+    </script>
+</body>
+</html>

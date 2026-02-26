@@ -1,0 +1,31 @@
+# LUXE Store - robots.txt
+# Allow all web crawlers to index the site
+
+User-agent: *
+Allow: /
+
+# Main pages
+Allow: /index.html
+Allow: /shop.html
+Allow: /product.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /faq.html
+Allow: /tracking.html
+Allow: /privacy.html
+Allow: /terms.html
+Allow: /returns.html
+
+# Disallow internal/user-specific pages from indexing
+Disallow: /cart.html
+Disallow: /checkout.html
+Disallow: /account.html
+Disallow: /wishlist.html
+Disallow: /login.html
+Disallow: /404.html
+
+# Sitemap location
+Sitemap: https://luxestore.com/sitemap.xml
+
+# Crawl delay (optional - be nice to the server)
+Crawl-delay: 1

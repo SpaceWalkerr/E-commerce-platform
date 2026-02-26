@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Product Details - LUXE Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header header-solid" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">LUXE</span>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="nav-icon search-btn" aria-label="Search" id="search-toggle">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="wishlist.html" class="nav-icon" aria-label="Wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span class="wishlist-count" id="wishlist-count">0</span>
+                </a>
+                <a href="login.html" class="nav-icon" aria-label="Account">
+                    <i class="fas fa-user"></i>
+                </a>
+                <button class="nav-icon cart-btn" id="cart-btn" aria-label="Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-container">
+            <button class="search-close" id="search-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <form class="search-form" id="search-form">
+                <input type="text" placeholder="Search products..." id="search-input" autocomplete="off">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <div class="search-suggestions" id="search-suggestions"></div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <a href="shop.html">Shop</a>
+                <span>/</span>
+                <span id="product-category">Category</span>
+                <span>/</span>
+                <span id="product-breadcrumb">Product Name</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product-section">
+        <div class="container">
+            <div class="product-layout">
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <div class="gallery-main">
+                        <div class="zoom-container" id="zoom-container">
+                            <img src="" alt="Product" id="main-image" class="main-image">
+                            <div class="zoom-lens" id="zoom-lens"></div>
+                        </div>
+                        <div class="zoom-result" id="zoom-result"></div>
+                        <button class="gallery-nav prev" id="gallery-prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="gallery-nav next" id="gallery-next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="product-badges" id="product-badges"></div>
+                    </div>
+                    <div class="gallery-thumbs" id="gallery-thumbs"></div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <div class="product-header">
+                        <span class="product-brand" id="product-brand">Brand</span>
+                        <h1 class="product-title" id="product-title">Product Name</h1>
+                        <div class="product-rating" id="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(128 reviews)</span>
+                        </div>
+                    </div>
+
+                    <div class="product-price">
+                        <span class="current-price" id="current-price">₹0</span>
+                        <span class="original-price" id="original-price">₹0</span>
+                        <span class="discount-badge" id="discount-badge">-20%</span>
+                    </div>
+
+                    <p class="product-description" id="product-description">
+                        Product description goes here...
+                    </p>
+
+                    <div class="product-stock" id="product-stock">
+                        <i class="fas fa-check-circle"></i>
+                        <span>In Stock</span>
+                    </div>
+
+                    <!-- Color Selection -->
+                    <div class="product-option">
+                        <label>Color: <span id="selected-color">Black</span></label>
+                        <div class="color-options" id="color-options">
+                            <button class="color-btn active" data-color="Black" style="background-color: #000"></button>
+                            <button class="color-btn" data-color="White" style="background-color: #fff"></button>
+                            <button class="color-btn" data-color="Navy" style="background-color: #1a1a4e"></button>
+                            <button class="color-btn" data-color="Brown" style="background-color: #8B4513"></button>
+                        </div>
+                    </div>
+
+                    <!-- Size Selection -->
+                    <div class="product-option">
+                        <label>Size: <span id="selected-size">M</span></label>
+                        <div class="size-options" id="size-options">
+                            <button class="size-btn" data-size="XS">XS</button>
+                            <button class="size-btn" data-size="S">S</button>
+                            <button class="size-btn active" data-size="M">M</button>
+                            <button class="size-btn" data-size="L">L</button>
+                            <button class="size-btn" data-size="XL">XL</button>
+                        </div>
+                        <button class="size-guide-btn" id="size-guide-btn">
+                            <i class="fas fa-ruler"></i> Size Guide
+                        </button>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="product-option">
+                        <label>Quantity:</label>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus" id="qty-minus">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="number" value="1" min="1" max="10" id="qty-input">
+                            <button class="qty-btn plus" id="qty-plus">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="product-actions">
+                        <button class="btn btn-primary add-to-cart-btn" id="add-to-cart">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                        <button class="btn btn-outline wishlist-btn" id="add-to-wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <button class="buy-now-btn" id="buy-now">
+                        <i class="fas fa-bolt"></i>
+                        Buy Now
+                    </button>
+
+                    <!-- Features -->
+                    <div class="product-features">
+                        <div class="feature">
+                            <i class="fas fa-truck"></i>
+                            <span>Free shipping over ₹999</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-undo"></i>
+                            <span>30-day return policy</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure payment</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-headset"></i>
+                            <span>24/7 customer support</span>
+                        </div>
+                    </div>
+
+                    <!-- Share -->
+                    <div class="product-share">
+                        <span>Share:</span>
+                        <div class="share-links">
+                            <a href="#" class="share-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="share-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="share-link"><i class="fab fa-pinterest"></i></a>
+                            <a href="#" class="share-link"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="product-tabs">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="description">Description</button>
+                    <button class="tab-btn" data-tab="specifications">Specifications</button>
+                    <button class="tab-btn" data-tab="reviews">Reviews (128)</button>
+                    <button class="tab-btn" data-tab="shipping">Shipping & Returns</button>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab-pane active" id="description">
+                        <h3>Product Description</h3>
+                        <p id="full-description">
+                            Experience luxury like never before with this premium product. Crafted with the finest materials and attention to detail, this piece is designed to elevate your style and provide unmatched comfort.
+                        </p>
+                        <ul class="description-features">
+                            <li>Premium quality materials</li>
+                            <li>Expert craftsmanship</li>
+                            <li>Comfortable fit</li>
+                            <li>Versatile styling options</li>
+                            <li>Easy care instructions</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="specifications">
+                        <h3>Product Specifications</h3>
+                        <table class="spec-table">
+                            <tr><td>Material</td><td>Premium Cotton Blend</td></tr>
+                            <tr><td>Weight</td><td>250g</td></tr>
+                            <tr><td>Care</td><td>Machine wash cold</td></tr>
+                            <tr><td>Origin</td><td>Made in India</td></tr>
+                            <tr><td>SKU</td><td id="product-sku">LUXE-001</td></tr>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="reviews">
+                        <div class="reviews-summary">
+                            <div class="rating-overview">
+                                <div class="rating-big">4.5</div>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span>Based on 128 reviews</span>
+                            </div>
+                            <div class="rating-bars">
+                                <div class="rating-bar"><span>5 stars</span><div class="bar"><div class="fill" style="width: 70%"></div></div><span>70%</span></div>
+                                <div class="rating-bar"><span>4 stars</span><div class="bar"><div class="fill" style="width: 20%"></div></div><span>20%</span></div>
+                                <div class="rating-bar"><span>3 stars</span><div class="bar"><div class="fill" style="width: 7%"></div></div><span>7%</span></div>
+                                <div class="rating-bar"><span>2 stars</span><div class="bar"><div class="fill" style="width: 2%"></div></div><span>2%</span></div>
+                                <div class="rating-bar"><span>1 star</span><div class="bar"><div class="fill" style="width: 1%"></div></div><span>1%</span></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline write-review-btn" id="write-review-btn">
+                            <i class="fas fa-pen"></i> Write a Review
+                        </button>
+                        <div class="reviews-list" id="reviews-list">
+                            <!-- Reviews will be loaded dynamically -->
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="shipping">
+                        <h3>Shipping Information</h3>
+                        <div class="shipping-info">
+                            <div class="info-block">
+                                <h4><i class="fas fa-truck"></i> Delivery</h4>
+                                <ul>
+                                    <li>Standard Delivery: 5-7 business days (Free over ₹999)</li>
+                                    <li>Express Delivery: 2-3 business days (₹149)</li>
+                                    <li>Same Day Delivery: Available in select cities (₹299)</li>
+                                </ul>
+                            </div>
+                            <div class="info-block">
+                                <h4><i class="fas fa-undo"></i> Returns & Exchanges</h4>
+                                <ul>
+                                    <li>30-day return policy for unworn items</li>
+                                    <li>Free returns on all orders</li>
+                                    <li>Exchange for different size/color available</li>
+                                    <li>Refund processed within 5-7 business days</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">You May Also Like</h2>
+            </div>
+            <div class="products-slider" id="related-products">
+                <!-- Products will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Recently Viewed -->
+    <section class="recently-viewed">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recently Viewed</h2>
+            </div>
+            <div class="products-slider" id="recently-viewed">
+                <!-- Products will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Size Guide Modal -->
+    <div class="modal" id="size-guide-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="size-guide-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Size Guide</h2>
+            <p>Find your perfect fit with our size chart</p>
+            <table class="size-chart">
+                <thead>
+                    <tr>
+                        <th>Size</th>
+                        <th>Chest (in)</th>
+                        <th>Waist (in)</th>
+                        <th>Hip (in)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>XS</td><td>32-34</td><td>26-28</td><td>34-36</td></tr>
+                    <tr><td>S</td><td>34-36</td><td>28-30</td><td>36-38</td></tr>
+                    <tr><td>M</td><td>38-40</td><td>32-34</td><td>40-42</td></tr>
+                    <tr><td>L</td><td>42-44</td><td>36-38</td><td>44-46</td></tr>
+                    <tr><td>XL</td><td>46-48</td><td>40-42</td><td>48-50</td></tr>
+                </tbody>
+            </table>
+            <div class="size-tips">
+                <h4>Measuring Tips</h4>
+                <ul>
+                    <li><strong>Chest:</strong> Measure around the fullest part of your chest</li>
+                    <li><strong>Waist:</strong> Measure around your natural waistline</li>
+                    <li><strong>Hip:</strong> Measure around the fullest part of your hips</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Write Review Modal -->
+    <div class="modal" id="review-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="review-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Write a Review</h2>
+            <form class="review-form" id="review-form">
+                <div class="form-group">
+                    <label>Your Rating *</label>
+                    <div class="rating-select" id="rating-select">
+                        <i class="far fa-star" data-rating="1"></i>
+                        <i class="far fa-star" data-rating="2"></i>
+                        <i class="far fa-star" data-rating="3"></i>
+                        <i class="far fa-star" data-rating="4"></i>
+                        <i class="far fa-star" data-rating="5"></i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="review-title">Review Title *</label>
+                    <input type="text" id="review-title" placeholder="Sum it up in a few words" required>
+                </div>
+                <div class="form-group">
+                    <label for="review-text">Your Review *</label>
+                    <textarea id="review-text" rows="5" placeholder="What did you like or dislike about this product?" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="review-name">Your Name *</label>
+                        <input type="text" id="review-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-email">Email *</label>
+                        <input type="email" id="review-email" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit Review</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <a href="index.html" class="footer-logo">LUXE</a>
+                        <p class="footer-description">Discover the latest trends in fashion and elevate your style with our premium collection.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/in/surajnandan" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Customer Service</h4>
+                        <ul class="footer-links">
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="returns.html">Shipping & Returns</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="terms.html">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact Info</h4>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-map-marker-alt"></i> Kishanganj, Bihar, India</li>
+                            <li><i class="fas fa-phone"></i> +91 6203484989</li>
+                            <li><i class="fas fa-envelope"></i> surajnandan78@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 LUXE Store by Suraj Nandan. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="cart-close" id="cart-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal">₹0</span>
+            </div>
+            <a href="cart.html" class="btn btn-outline btn-block">View Cart</a>
+            <a href="checkout.html" class="btn btn-primary btn-block">Checkout</a>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script src="product.js"></script>
+</body>
+</html>

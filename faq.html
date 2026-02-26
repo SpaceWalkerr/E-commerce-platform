@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Frequently Asked Questions | LUXE Store</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="faq.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">LUXE</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="#" class="nav-icon search-toggle"><i class="fas fa-search"></i></a>
+                <a href="wishlist.html" class="nav-icon"><i class="fas fa-heart"></i></a>
+                <a href="cart.html" class="nav-icon cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="account.html" class="nav-icon"><i class="fas fa-user"></i></a>
+            </div>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <span>FAQ</span>
+        </div>
+    </section>
+
+    <!-- FAQ Hero -->
+    <section class="faq-hero">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about our products and services</p>
+            <div class="faq-search">
+                <i class="fas fa-search"></i>
+                <input type="text" id="faqSearch" placeholder="Search for answers...">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="faq-categories">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">
+                    <i class="fas fa-list"></i> All
+                </button>
+                <button class="category-tab" data-category="orders">
+                    <i class="fas fa-shopping-bag"></i> Orders
+                </button>
+                <button class="category-tab" data-category="shipping">
+                    <i class="fas fa-truck"></i> Shipping
+                </button>
+                <button class="category-tab" data-category="returns">
+                    <i class="fas fa-redo"></i> Returns
+                </button>
+                <button class="category-tab" data-category="payment">
+                    <i class="fas fa-credit-card"></i> Payment
+                </button>
+                <button class="category-tab" data-category="account">
+                    <i class="fas fa-user"></i> Account
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="faq-content">
+        <div class="container">
+            <!-- Orders Section -->
+            <div class="faq-section" data-category="orders">
+                <h2><i class="fas fa-shopping-bag"></i> Orders & Purchases</h2>
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How do I place an order?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Placing an order on LUXE Store is easy:</p>
+                            <ol>
+                                <li>Browse our collection and select items you like</li>
+                                <li>Choose your preferred size and color</li>
+                                <li>Add items to your cart</li>
+                                <li>Proceed to checkout and enter your shipping details</li>
+                                <li>Select your payment method and confirm your order</li>
+                            </ol>
+                            <p>You'll receive a confirmation email with your order details once the order is placed.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I modify or cancel my order after placing it?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You can modify or cancel your order within 1 hour of placing it. After that, the order enters our processing queue and cannot be changed.</p>
+                            <p>To modify or cancel, please contact our customer support immediately at <a href="mailto:surajnandan78@gmail.com">surajnandan78@gmail.com</a> or call +91 6203484989.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How can I track my order?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You can track your order in multiple ways:</p>
+                            <ul>
+                                <li>Use our <a href="tracking.html">Order Tracking</a> page with your Order ID</li>
+                                <li>Log into your account and check the Orders section</li>
+                                <li>Click the tracking link in your shipping confirmation email</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What if I receive a damaged or wrong item?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We sincerely apologize if you receive a damaged or incorrect item. Please contact us within 48 hours of delivery with:</p>
+                            <ul>
+                                <li>Your order number</li>
+                                <li>Photos of the damaged/wrong item</li>
+                                <li>Description of the issue</li>
+                            </ul>
+                            <p>We'll arrange a free replacement or full refund as per your preference.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping Section -->
+            <div class="faq-section" data-category="shipping">
+                <h2><i class="fas fa-truck"></i> Shipping & Delivery</h2>
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What are the shipping charges?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our shipping charges are as follows:</p>
+                            <ul>
+                                <li><strong>Standard Shipping:</strong> ₹99 (Free on orders above ₹999)</li>
+                                <li><strong>Express Shipping:</strong> ₹199</li>
+                                <li><strong>Same Day Delivery:</strong> ₹299 (Available in select cities)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How long does delivery take?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Delivery times vary based on your location:</p>
+                            <ul>
+                                <li><strong>Metro cities:</strong> 2-4 business days</li>
+                                <li><strong>Other cities:</strong> 4-6 business days</li>
+                                <li><strong>Remote areas:</strong> 7-10 business days</li>
+                            </ul>
+                            <p>Express shipping reduces delivery time by 1-2 days.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do you deliver to my location?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We deliver across all serviceable pin codes in India. You can check if we deliver to your location by entering your pin code at checkout.</p>
+                            <p>For locations in Bihar, including Kishanganj, we offer faster delivery options.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I change my delivery address after ordering?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You can change your delivery address only before the order is shipped. Once shipped, the address cannot be modified.</p>
+                            <p>Contact our support team immediately if you need to update your address.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Returns Section -->
+            <div class="faq-section" data-category="returns">
+                <h2><i class="fas fa-redo"></i> Returns & Exchanges</h2>
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What is your return policy?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We offer a 30-day hassle-free return policy. Items must be:</p>
+                            <ul>
+                                <li>Unused and in original condition</li>
+                                <li>With all original tags attached</li>
+                                <li>In original packaging</li>
+                                <li>Accompanied by the invoice</li>
+                            </ul>
+                            <p>Some items like innerwear, swimwear, and personalized products are non-returnable.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How do I initiate a return?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>To initiate a return:</p>
+                            <ol>
+                                <li>Log into your account</li>
+                                <li>Go to Orders section</li>
+                                <li>Select the item you want to return</li>
+                                <li>Choose a reason for return</li>
+                                <li>Schedule a pickup or drop at our partner location</li>
+                            </ol>
+                            <p>You can also email us at <a href="mailto:surajnandan78@gmail.com">surajnandan78@gmail.com</a> with your order details.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>When will I receive my refund?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Refunds are processed within 5-7 business days after we receive and verify the returned item.</p>
+                            <p>The refund will be credited to your original payment method:</p>
+                            <ul>
+                                <li><strong>UPI/Wallets:</strong> 1-2 business days</li>
+                                <li><strong>Credit/Debit Cards:</strong> 5-7 business days</li>
+                                <li><strong>Net Banking:</strong> 5-7 business days</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I exchange an item for a different size?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! We offer free size exchanges within 30 days of delivery. Simply initiate a return with "Size Exchange" as the reason, and select your preferred new size.</p>
+                            <p>Exchange is subject to size availability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Section -->
+            <div class="faq-section" data-category="payment">
+                <h2><i class="fas fa-credit-card"></i> Payment & Pricing</h2>
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What payment methods do you accept?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We accept the following payment methods:</p>
+                            <ul>
+                                <li><strong>UPI:</strong> Google Pay, PhonePe, Paytm, BHIM</li>
+                                <li><strong>Cards:</strong> Visa, Mastercard, Rupay, American Express</li>
+                                <li><strong>Net Banking:</strong> All major banks</li>
+                                <li><strong>Wallets:</strong> Paytm, Mobikwik, Amazon Pay</li>
+                                <li><strong>EMI:</strong> Available on orders above ₹3,000</li>
+                                <li><strong>Cash on Delivery (COD):</strong> Available on orders up to ₹10,000</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Is it safe to pay online on your website?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely! We take security very seriously:</p>
+                            <ul>
+                                <li>SSL encryption on all pages</li>
+                                <li>PCI DSS compliant payment gateway</li>
+                                <li>We never store your complete card details</li>
+                                <li>3D Secure authentication for card payments</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do you offer EMI options?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, we offer No-Cost EMI on orders above ₹3,000. Available EMI tenures:</p>
+                            <ul>
+                                <li>3 months - No additional charges</li>
+                                <li>6 months - All major banks</li>
+                                <li>9 months - Select banks</li>
+                                <li>12 months - Select banks</li>
+                            </ul>
+                            <p>EMI options will be displayed at checkout based on your card eligibility.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How do I apply a coupon code?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>To apply a coupon code:</p>
+                            <ol>
+                                <li>Add items to your cart</li>
+                                <li>Go to the Cart page</li>
+                                <li>Enter your coupon code in the "Promo Code" field</li>
+                                <li>Click "Apply" to see the discount</li>
+                            </ol>
+                            <p>Note: Only one coupon can be applied per order.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Section -->
+            <div class="faq-section" data-category="account">
+                <h2><i class="fas fa-user"></i> Account & Profile</h2>
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do I need an account to place an order?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No, you can checkout as a guest. However, creating an account offers benefits like:</p>
+                            <ul>
+                                <li>Faster checkout with saved addresses</li>
+                                <li>Order history and tracking</li>
+                                <li>Wishlist functionality</li>
+                                <li>Exclusive member offers and early access to sales</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How do I reset my password?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>To reset your password:</p>
+                            <ol>
+                                <li>Go to the <a href="login.html">Login page</a></li>
+                                <li>Click on "Forgot Password"</li>
+                                <li>Enter your registered email address</li>
+                                <li>Check your email for reset instructions</li>
+                                <li>Click the link and set a new password</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How do I update my account information?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You can update your account information anytime:</p>
+                            <ol>
+                                <li>Log into your account</li>
+                                <li>Go to Account Settings</li>
+                                <li>Update your name, email, phone, or password</li>
+                                <li>Click "Save Changes"</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How can I delete my account?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We're sorry to see you go! To delete your account, please email us at <a href="mailto:surajnandan78@gmail.com">surajnandan78@gmail.com</a> with the subject "Account Deletion Request".</p>
+                            <p>Please note that account deletion will:</p>
+                            <ul>
+                                <li>Remove all your saved addresses</li>
+                                <li>Delete your wishlist</li>
+                                <li>Remove access to order history</li>
+                            </ul>
+                            <p>Active orders will still be delivered.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Still Need Help -->
+    <section class="help-section">
+        <div class="container">
+            <div class="help-card">
+                <div class="help-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="help-content">
+                    <h3>Still have questions?</h3>
+                    <p>Our support team is here to help you 24/7</p>
+                </div>
+                <div class="help-actions">
+                    <a href="contact.html" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Contact Us
+                    </a>
+                    <a href="tel:+916203484989" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i> +91 6203484989
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>LUXE</h3>
+                    <p>Discover the finest curated collection of luxury fashion and lifestyle products.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="tracking.html">Track Order</a></li>
+                        <li><a href="returns.html">Shipping & Returns</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Kishanganj, Bihar, India</li>
+                        <li><i class="fas fa-phone"></i> +91 6203484989</li>
+                        <li><i class="fas fa-envelope"></i> surajnandan78@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LUXE Store. All rights reserved. Made with <i class="fas fa-heart"></i> by Suraj Nandan</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Category Tabs
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const faqSections = document.querySelectorAll('.faq-section');
+        
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const category = tab.dataset.category;
+                
+                // Update active tab
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Show/hide sections
+                faqSections.forEach(section => {
+                    if (category === 'all' || section.dataset.category === category) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // FAQ Search
+        const faqSearch = document.getElementById('faqSearch');
+        
+        faqSearch.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            // Reset category tabs
+            categoryTabs.forEach(t => t.classList.remove('active'));
+            document.querySelector('[data-category="all"]').classList.add('active');
+            faqSections.forEach(s => s.style.display = 'block');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    if (searchTerm.length > 2) {
+                        item.classList.add('active');
+                    }
+                } else {
+                    item.style.display = searchTerm.length > 0 ? 'none' : 'block';
+                    if (searchTerm.length === 0) {
+                        item.classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

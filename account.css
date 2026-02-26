@@ -1,0 +1,575 @@
+/* Account Page Styles */
+
+.account-section {
+    padding: 3rem 0;
+    min-height: 60vh;
+}
+
+.account-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+}
+
+/* Sidebar */
+.account-sidebar {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.user-profile {
+    text-align: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.user-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.user-avatar i {
+    font-size: 2rem;
+    color: white;
+}
+
+.user-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.user-email {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.account-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.account-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.account-nav-link i {
+    width: 20px;
+    color: var(--text-light);
+}
+
+.account-nav-link:hover {
+    background: var(--light-bg);
+    color: var(--accent-color);
+}
+
+.account-nav-link:hover i {
+    color: var(--accent-color);
+}
+
+.account-nav-link.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+.account-nav-link.active i {
+    color: white;
+}
+
+.account-nav-link.logout {
+    margin-top: 1rem;
+    color: var(--accent-color);
+}
+
+.account-nav-link.logout i {
+    color: var(--accent-color);
+}
+
+/* Main Content */
+.account-main {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.account-tab {
+    display: none;
+}
+
+.account-tab.active {
+    display: block;
+}
+
+.account-tab h2 {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.account-tab h3 {
+    font-size: 1.1rem;
+    margin: 2rem 0 1rem;
+    color: var(--text-dark);
+}
+
+.welcome-text {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+/* Dashboard Stats */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--light-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon i {
+    font-size: 1.25rem;
+    color: white;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Recent Orders */
+.recent-orders {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.order-card {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.order-id {
+    font-weight: 600;
+    color: var(--text-dark);
+    display: block;
+}
+
+.order-date {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.order-status {
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.order-status.delivered,
+.status-badge.delivered {
+    background: #dcfce7;
+    color: #10b981;
+}
+
+.order-status.shipped,
+.status-badge.shipped {
+    background: #dbeafe;
+    color: #3b82f6;
+}
+
+.order-status.processing,
+.status-badge.processing {
+    background: #fef3c7;
+    color: #f59e0b;
+}
+
+.order-status.cancelled,
+.status-badge.cancelled {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.order-items {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.order-items img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.order-total {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+/* Orders Table */
+.orders-table-wrapper {
+    overflow-x: auto;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orders-table th,
+.orders-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.orders-table th {
+    font-weight: 600;
+    color: var(--text-dark);
+    background: var(--light-bg);
+}
+
+.orders-table td {
+    color: var(--text-light);
+}
+
+.status-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Addresses */
+.addresses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.address-card {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.address-type {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.address-type i {
+    color: var(--accent-color);
+}
+
+.address-type span:first-of-type {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.default-badge {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-left: auto;
+}
+
+.address-name {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.address-text {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.address-phone {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.address-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.address-card.add-new {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    border-style: dashed;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.address-card.add-new:hover {
+    border-color: var(--accent-color);
+    background: rgba(233, 69, 96, 0.05);
+}
+
+.address-card.add-new .add-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.address-card.add-new .add-icon i {
+    color: var(--accent-color);
+}
+
+/* Settings Form */
+.settings-form {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.settings-form:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.settings-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.settings-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.settings-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.settings-form input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.settings-form input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* Wishlist Grid */
+#account-wishlist.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.wishlist-item {
+    text-align: center;
+}
+
+.wishlist-item img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+}
+
+.wishlist-item h4 {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.wishlist-item .price {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.empty-wishlist {
+    text-align: center;
+    padding: 3rem;
+}
+
+.empty-wishlist i {
+    font-size: 3rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.empty-wishlist p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+/* Button Small */
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .account-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .account-sidebar {
+        position: static;
+    }
+    
+    .account-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .account-nav-link {
+        flex: 1;
+        min-width: 120px;
+        justify-content: center;
+    }
+    
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .user-profile {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-align: left;
+        padding-bottom: 1rem;
+    }
+    
+    .user-avatar {
+        width: 50px;
+        height: 50px;
+        margin: 0;
+    }
+    
+    .user-avatar i {
+        font-size: 1.25rem;
+    }
+    
+    .account-nav-link span {
+        display: none;
+    }
+    
+    .account-nav-link {
+        min-width: auto;
+        padding: 0.75rem;
+    }
+    
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .settings-form .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .account-main {
+        padding: 1.5rem;
+    }
+    
+    .order-footer {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .orders-table th,
+    .orders-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+}
