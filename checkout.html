@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Checkout - LUXE Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header header-solid" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">LUXE</span>
+            </a>
+            
+            <div class="checkout-steps">
+                <div class="step active">
+                    <span class="step-number">1</span>
+                    <span class="step-text">Shipping</span>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <span class="step-text">Payment</span>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <span class="step-text">Review</span>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <a href="cart.html" class="back-to-cart">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Cart
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <div class="checkout-layout">
+                <!-- Checkout Form -->
+                <div class="checkout-main">
+                    <!-- Shipping Information -->
+                    <div class="checkout-card" id="shipping-section">
+                        <div class="card-header">
+                            <h3><i class="fas fa-truck"></i> Shipping Information</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="shipping-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="ship-firstname">First Name *</label>
+                                        <input type="text" id="ship-firstname" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ship-lastname">Last Name *</label>
+                                        <input type="text" id="ship-lastname" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="ship-email">Email Address *</label>
+                                    <input type="email" id="ship-email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="ship-phone">Phone Number *</label>
+                                    <input type="tel" id="ship-phone" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="ship-address">Street Address *</label>
+                                    <input type="text" id="ship-address" placeholder="House number and street name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="ship-address2">Apartment, suite, etc. (optional)</label>
+                                    <input type="text" id="ship-address2">
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="ship-city">City *</label>
+                                        <input type="text" id="ship-city" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ship-state">State/Province *</label>
+                                        <input type="text" id="ship-state" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="ship-zip">ZIP/Postal Code *</label>
+                                        <input type="text" id="ship-zip" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ship-country">Country *</label>
+                                        <select id="ship-country" required>
+                                            <option value="IN" selected>India</option>
+                                            <option value="US">United States</option>
+                                            <option value="CA">Canada</option>
+                                            <option value="UK">United Kingdom</option>
+                                            <option value="AU">Australia</option>
+                                            <option value="DE">Germany</option>
+                                            <option value="FR">France</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="shipping-methods">
+                                    <h4>Shipping Method</h4>
+                                    <div class="shipping-options">
+                                        <label class="shipping-option">
+                                            <input type="radio" name="shipping" value="standard" checked>
+                                            <div class="option-content">
+                                                <div class="option-info">
+                                                    <span class="option-title">Standard Shipping</span>
+                                                    <span class="option-desc">5-7 business days</span>
+                                                </div>
+                                                <span class="option-price">Free</span>
+                                            </div>
+                                        </label>
+                                        <label class="shipping-option">
+                                            <input type="radio" name="shipping" value="express">
+                                            <div class="option-content">
+                                                <div class="option-info">
+                                                    <span class="option-title">Express Shipping</span>
+                                                    <span class="option-desc">2-3 business days</span>
+                                                </div>
+                                                <span class="option-price">₹999</span>
+                                            </div>
+                                        </label>
+                                        <label class="shipping-option">
+                                            <input type="radio" name="shipping" value="overnight">
+                                            <div class="option-content">
+                                                <div class="option-info">
+                                                    <span class="option-title">Overnight Shipping</span>
+                                                    <span class="option-desc">Next business day</span>
+                                                </div>
+                                                <span class="option-price">₹1,999</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Information -->
+                    <div class="checkout-card" id="payment-section">
+                        <div class="card-header">
+                            <h3><i class="fas fa-credit-card"></i> Payment Information</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="payment-methods">
+                                <label class="payment-method">
+                                    <input type="radio" name="payment" value="card" checked>
+                                    <div class="method-content">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Credit/Debit Card</span>
+                                    </div>
+                                </label>
+                                <label class="payment-method">
+                                    <input type="radio" name="payment" value="paypal">
+                                    <div class="method-content">
+                                        <i class="fab fa-paypal"></i>
+                                        <span>PayPal</span>
+                                    </div>
+                                </label>
+                                <label class="payment-method">
+                                    <input type="radio" name="payment" value="apple">
+                                    <div class="method-content">
+                                        <i class="fab fa-apple-pay"></i>
+                                        <span>Apple Pay</span>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <form id="payment-form" class="payment-card-form">
+                                <div class="form-group">
+                                    <label for="card-number">Card Number *</label>
+                                    <div class="card-input">
+                                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                                        <div class="card-icons">
+                                            <i class="fab fa-cc-visa"></i>
+                                            <i class="fab fa-cc-mastercard"></i>
+                                            <i class="fab fa-cc-amex"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="card-name">Name on Card *</label>
+                                    <input type="text" id="card-name" required>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="card-expiry">Expiry Date *</label>
+                                        <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="card-cvv">CVV *</label>
+                                        <input type="text" id="card-cvv" placeholder="123" maxlength="4" required>
+                                    </div>
+                                </div>
+                                
+                                <label class="checkbox-label save-card">
+                                    <input type="checkbox" name="save-card">
+                                    <span class="checkmark"></span>
+                                    Save card for future purchases
+                                </label>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-actions">
+                        <a href="cart.html" class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i>
+                            Return to Cart
+                        </a>
+                        <button type="submit" class="btn btn-primary" id="place-order">
+                            Place Order
+                            <i class="fas fa-lock"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="checkout-summary">
+                    <div class="summary-card">
+                        <h3>Order Summary</h3>
+                        
+                        <div class="summary-items" id="checkout-items">
+                            <!-- Items will be loaded dynamically -->
+                        </div>
+                        
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span id="checkout-subtotal">₹0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span id="checkout-shipping">Free</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax</span>
+                                <span id="checkout-tax">₹0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="promo-code">
+                            <input type="text" placeholder="Promo code">
+                            <button class="btn btn-outline">Apply</button>
+                        </div>
+                        
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <span id="checkout-total">₹0</span>
+                        </div>
+                        
+                        <div class="secure-info">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Secure Checkout</h4>
+                                <p>Your payment information is encrypted and secure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Mini -->
+    <footer class="footer-mini">
+        <div class="container">
+            <p>&copy; 2026 LUXE Store by Suraj Nandan. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Update checkout summary
+        function updateCheckoutSummary() {
+            const checkoutItems = document.getElementById('checkout-items');
+            const cart = JSON.parse(localStorage.getItem('luxeCart')) || [];
+            
+            if (!checkoutItems) return;
+            
+            checkoutItems.innerHTML = cart.map(item => `
+                <div class="summary-item">
+                    <div class="item-image">
+                        <img src="${item.image}" alt="${item.name}">
+                        <span class="item-qty">${item.quantity}</span>
+                    </div>
+                    <div class="item-info">
+                        <h4>${item.name}</h4>
+                        <p>Size: M | Color: Black</p>
+                    </div>
+                    <span class="item-price">₹${(item.price * item.quantity).toFixed(0)}</span>
+                </div>
+            `).join('');
+            
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const tax = subtotal * 0.08;
+            const total = subtotal + tax;
+            
+            document.getElementById('checkout-subtotal').textContent = '₹' + subtotal.toFixed(0);
+            document.getElementById('checkout-tax').textContent = '₹' + tax.toFixed(0);
+            document.getElementById('checkout-total').textContent = '₹' + total.toFixed(0);
+        }
+        
+        updateCheckoutSummary();
+        
+        // Place order
+        document.getElementById('place-order').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Thank you for your order! This is a demo - no actual charge has been made.');
+            localStorage.removeItem('luxeCart');
+            window.location.href = 'index.html';
+        });
+        
+        // Card number formatting
+        document.getElementById('card-number').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '').replace(/\D/g, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || '';
+            e.target.value = formattedValue;
+        });
+        
+        // Expiry date formatting
+        document.getElementById('card-expiry').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2);
+            }
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>LUXE Store - Premium Shopping Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <span class="loader-text">LUXE</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">LUXE</span>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="nav-icon search-btn" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="login.html" class="nav-icon" aria-label="Account">
+                    <i class="fas fa-user"></i>
+                </a>
+                <button class="nav-icon cart-btn" id="cart-btn" aria-label="Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Search Modal -->
+        <div class="search-modal" id="search-modal">
+            <div class="search-modal-content">
+                <input type="text" placeholder="Search for products..." class="search-input">
+                <button class="search-close" id="search-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1920');">
+                <div class="hero-content container">
+                    <span class="hero-subtitle">New Collection 2026</span>
+                    <h1 class="hero-title">Discover Your <br><span class="highlight">Unique Style</span></h1>
+                    <p class="hero-description">Elevate your wardrobe with our curated selection of premium fashion pieces.</p>
+                    <div class="hero-buttons">
+                        <a href="shop.html" class="btn btn-primary">Shop Now</a>
+                        <a href="#categories" class="btn btn-outline">Explore</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1920');">
+                <div class="hero-content container">
+                    <span class="hero-subtitle">Summer Sale</span>
+                    <h1 class="hero-title">Up to <span class="highlight">50% Off</span></h1>
+                    <p class="hero-description">Don't miss out on our biggest sale of the season. Limited time only.</p>
+                    <div class="hero-buttons">
+                        <a href="shop.html" class="btn btn-primary">Shop Sale</a>
+                        <a href="#featured" class="btn btn-outline">View Deals</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-controls">
+            <button class="hero-prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="hero-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+            </div>
+            <button class="hero-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Features Bar -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <div class="feature-text">
+                        <h4>Free Shipping</h4>
+                        <p>On orders over ₹999</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-undo-alt"></i>
+                    <div class="feature-text">
+                        <h4>Easy Returns</h4>
+                        <p>30-day return policy</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-lock"></i>
+                    <div class="feature-text">
+                        <h4>Secure Payment</h4>
+                        <p>100% secure checkout</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <div class="feature-text">
+                        <h4>24/7 Support</h4>
+                        <p>Dedicated support team</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Browse by</span>
+                <h2 class="section-title">Categories</h2>
+            </div>
+            <div class="categories-grid">
+                <a href="shop.html?category=men" class="category-card category-large">
+                    <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=800" alt="Men's Collection">
+                    <div class="category-overlay">
+                        <h3>Men's Fashion</h3>
+                        <span>Shop Now <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="shop.html?category=women" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800" alt="Women's Collection">
+                    <div class="category-overlay">
+                        <h3>Women's Fashion</h3>
+                        <span>Shop Now <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="shop.html?category=accessories" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=800" alt="Accessories">
+                    <div class="category-overlay">
+                        <h3>Accessories</h3>
+                        <span>Shop Now <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="shop.html?category=shoes" class="category-card category-wide">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800" alt="Footwear">
+                    <div class="category-overlay">
+                        <h3>Footwear</h3>
+                        <span>Shop Now <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured" id="featured">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Our Products</span>
+                <h2 class="section-title">Featured Collection</h2>
+            </div>
+            <div class="products-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="new">New Arrivals</button>
+                <button class="filter-btn" data-filter="bestseller">Best Sellers</button>
+                <button class="filter-btn" data-filter="sale">On Sale</button>
+            </div>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be loaded dynamically -->
+            </div>
+            <div class="products-footer">
+                <a href="shop.html" class="btn btn-primary">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section class="promo-banner">
+        <div class="promo-bg" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1920');"></div>
+        <div class="container">
+            <div class="promo-content">
+                <span class="promo-subtitle">Limited Time Offer</span>
+                <h2 class="promo-title">Get 30% Off<br>Your First Order</h2>
+                <p class="promo-text">Sign up for our newsletter and receive exclusive discounts and early access to new collections.</p>
+                <form class="promo-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Section -->
+    <section class="trending">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">This Week</span>
+                <h2 class="section-title">Trending Now</h2>
+            </div>
+            <div class="trending-grid">
+                <div class="trending-item">
+                    <div class="trending-image">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600" alt="Trending Product">
+                        <div class="trending-badge">Hot</div>
+                    </div>
+                    <div class="trending-info">
+                        <h4>Premium Jacket</h4>
+                        <p class="trending-price">₹15,999</p>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-image">
+                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600" alt="Trending Product">
+                        <div class="trending-badge">New</div>
+                    </div>
+                    <div class="trending-info">
+                        <h4>Designer Watch</h4>
+                        <p class="trending-price">₹24,999</p>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-image">
+                        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600" alt="Trending Product">
+                        <div class="trending-badge">Popular</div>
+                    </div>
+                    <div class="trending-info">
+                        <h4>Leather Bag</h4>
+                        <p class="trending-price">₹12,999</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">What People Say</span>
+                <h2 class="section-title">Customer Reviews</h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Amazing quality and fast shipping! The clothes fit perfectly and look even better in person. Will definitely be shopping here again."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Customer">
+                        <div>
+                            <h4>Sarah Johnson</h4>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Best online shopping experience ever! The customer service is top-notch and the products are premium quality. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Customer">
+                        <div>
+                            <h4>Michael Chen</h4>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">"Love discovering new styles here. The curated collections always have something unique. Great value for money!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Customer">
+                        <div>
+                            <h4>Emily Davis</h4>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed -->
+    <section class="instagram">
+        <div class="section-header">
+            <span class="section-subtitle">@luxestore</span>
+            <h2 class="section-title">Follow Us on Instagram</h2>
+        </div>
+        <div class="instagram-grid">
+            <a href="#" class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Instagram">
+                <div class="instagram-overlay">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+            <a href="#" class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400" alt="Instagram">
+                <div class="instagram-overlay">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+            <a href="#" class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=400" alt="Instagram">
+                <div class="instagram-overlay">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+            <a href="#" class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400" alt="Instagram">
+                <div class="instagram-overlay">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+            <a href="#" class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=400" alt="Instagram">
+                <div class="instagram-overlay">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+            <a href="#" class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400" alt="Instagram">
+                <div class="instagram-overlay">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <a href="index.html" class="footer-logo">LUXE</a>
+                        <p class="footer-description">Discover the latest trends in fashion and elevate your style with our premium collection.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/in/surajnandan" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Customer Service</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Shipping & Returns</a></li>
+                            <li><a href="#">Size Guide</a></li>
+                            <li><a href="#">Track Order</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact Info</h4>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-map-marker-alt"></i> Kishanganj, Bihar, India</li>
+                            <li><i class="fas fa-phone"></i> +91 6203484989</li>
+                            <li><i class="fas fa-envelope"></i> surajnandan78@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 LUXE Store by Suraj Nandan. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="cart-close" id="cart-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be loaded dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal">₹0</span>
+            </div>
+            <a href="cart.html" class="btn btn-outline btn-block">View Cart</a>
+            <a href="checkout.html" class="btn btn-primary btn-block">Checkout</a>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
