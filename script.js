@@ -2,6 +2,51 @@
    LUXE Store - Main JavaScript
    ============================================= */
 
+// ==================== Image Resilience (fallback + lazy-load) ====================
+// Registered first so the capture-phase error listener catches failures early.
+(function imageResilience() {
+    const PLACEHOLDER = 'data:image/svg+xml,' + encodeURIComponent(
+        "<svg xmlns='http://www.w3.org/2000/svg' width='500' height='500'>" +
+        "<rect width='100%' height='100%' fill='#ececec'/>" +
+        "<text x='50%' y='50%' fill='#9aa0a6' font-family='Arial,Helvetica,sans-serif' " +
+        "font-size='26' text-anchor='middle' dominant-baseline='central'>Image unavailable</text>" +
+        "</svg>"
+    );
+
+    const markBroken = (img) => {
+        if (!img || img.dataset.fallbackApplied === 'true') return;
+        img.dataset.fallbackApplied = 'true';
+        img.src = PLACEHOLDER;
+    };
+    const enhance = (img) => {
+        if (!img.hasAttribute('loading')) img.loading = 'lazy';
+        if (!img.hasAttribute('decoding')) img.decoding = 'async';
+    };
+
+    // Delegated handler — error events don't bubble, so listen in capture phase.
+    document.addEventListener('error', (e) => {
+        if (e.target && e.target.tagName === 'IMG') markBroken(e.target);
+    }, true);
+
+    // Sweep images that may have failed/loaded before this point, and lazy-load the rest.
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('img').forEach((img) => {
+            if (img.complete && img.naturalWidth === 0) markBroken(img);
+            enhance(img);
+        });
+        // Catch JS-rendered images (product cards, cart, wishlist).
+        if ('MutationObserver' in window) {
+            new MutationObserver((mutations) => {
+                mutations.forEach((m) => m.addedNodes.forEach((node) => {
+                    if (node.nodeType !== 1) return;
+                    if (node.tagName === 'IMG') enhance(node);
+                    else if (node.querySelectorAll) node.querySelectorAll('img').forEach(enhance);
+                }));
+            }).observe(document.body, { childList: true, subtree: true });
+        }
+    });
+})();
+
 // ==================== Product Data ====================
 const products = [
     {
@@ -226,29 +271,75 @@ if (navToggle && navMenu) {
     });
 }
 
-// ==================== Search Modal ====================
-const searchBtn = document.querySelector('.search-btn');
-const searchModal = document.getElementById('search-modal');
-const searchClose = document.getElementById('search-close');
-
-if (searchBtn && searchModal) {
-    searchBtn.addEventListener('click', () => {
-        searchModal.classList.add('active');
-        searchModal.querySelector('input').focus();
+// Template B nav (faq, privacy, terms, returns, tracking, checkout, 404):
+// `.mobile-menu-btn` toggles `.nav-links` — previously unwired, so the
+// hamburger did nothing on mobile.
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.navbar .nav-links');
+if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
+            ? '<i class="fas fa-times"></i>'
+            : '<i class="fas fa-bars"></i>';
     });
-    
-    if (searchClose) {
-        searchClose.addEventListener('click', () => {
-            searchModal.classList.remove('active');
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
         });
-    }
-    
-    searchModal.addEventListener('click', (e) => {
-        if (e.target === searchModal) {
-            searchModal.classList.remove('active');
-        }
     });
 }
+
+// ==================== Search Modal ====================
+// Supports both `.search-btn` and `.search-toggle` triggers, injects the modal
+// on pages that don't ship it, and routes queries to the shop page.
+(function initSearch() {
+    const triggers = document.querySelectorAll('.search-btn, .search-toggle');
+    if (!triggers.length) return;
+
+    let searchModal = document.getElementById('search-modal');
+    if (!searchModal) {
+        searchModal = document.createElement('div');
+        searchModal.className = 'search-modal';
+        searchModal.id = 'search-modal';
+        searchModal.innerHTML =
+            '<div class="search-modal-content">' +
+                '<input type="text" placeholder="Search for products..." class="search-input">' +
+                '<button class="search-close" id="search-close" aria-label="Close search">' +
+                    '<i class="fas fa-times"></i>' +
+                '</button>' +
+            '</div>';
+        document.body.appendChild(searchModal);
+    }
+
+    const input = searchModal.querySelector('input');
+    const closeBtn = searchModal.querySelector('#search-close, .search-close');
+
+    const openSearch = (e) => {
+        if (e) e.preventDefault();
+        searchModal.classList.add('active');
+        if (input) input.focus();
+    };
+    const closeSearch = () => searchModal.classList.remove('active');
+
+    triggers.forEach(t => t.addEventListener('click', openSearch));
+    if (closeBtn) closeBtn.addEventListener('click', closeSearch);
+    searchModal.addEventListener('click', (e) => {
+        if (e.target === searchModal) closeSearch();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && searchModal.classList.contains('active')) closeSearch();
+    });
+
+    if (input) {
+        input.addEventListener('keydown', (e) => {
+            if (e.key !== 'Enter') return;
+            const q = input.value.trim();
+            if (q) window.location.href = `shop.html?search=${encodeURIComponent(q)}`;
+        });
+    }
+})();
 
 // ==================== Hero Slider ====================
 const heroSlider = document.querySelector('.hero-slider');
@@ -359,10 +450,39 @@ if (productsGrid) {
     productsGrid.innerHTML = featuredProducts.map(renderProductCard).join('');
 }
 
-// Render products on shop page
+// Render products on shop page (respects ?category= and ?search= URL params)
 const shopProductsGrid = document.getElementById('shop-products-grid');
 if (shopProductsGrid) {
-    shopProductsGrid.innerHTML = products.map(renderProductCard).join('');
+    const shopParams = new URLSearchParams(window.location.search);
+    const categoryParam = (shopParams.get('category') || '').toLowerCase().trim();
+    const searchParam = (shopParams.get('search') || '').toLowerCase().trim();
+
+    let shopProducts = products;
+    if (categoryParam && categoryParam !== 'all') {
+        shopProducts = shopProducts.filter(p => p.category.toLowerCase() === categoryParam);
+    }
+    if (searchParam) {
+        shopProducts = shopProducts.filter(p =>
+            `${p.name} ${p.category} ${p.description || ''}`.toLowerCase().includes(searchParam)
+        );
+    }
+
+    if (shopProducts.length) {
+        shopProductsGrid.innerHTML = shopProducts.map(renderProductCard).join('');
+    } else {
+        const term = shopParams.get('search') || shopParams.get('category') || '';
+        shopProductsGrid.innerHTML =
+            `<p class="no-results" style="grid-column:1/-1;text-align:center;padding:3rem 1rem;">` +
+            `No products found${term ? ` for "${term}"` : ''}. ` +
+            `<a href="shop.html">View all products</a>.</p>`;
+    }
+
+    // Reflect the active category in the sidebar checkboxes, if present
+    if (categoryParam) {
+        document.querySelectorAll('input[name="category"]').forEach(cb => {
+            cb.checked = cb.value.toLowerCase() === categoryParam;
+        });
+    }
 }
 
 // Render related products on cart page
@@ -752,6 +872,29 @@ authTabs.forEach(tab => {
         document.querySelectorAll('.auth-form-wrapper').forEach(form => {
             form.classList.toggle('active', form.id === `${tabId}-form`);
         });
+    });
+});
+
+// Auth form submit — prevent the default GET submit that otherwise reloaded the
+// page with the email/password exposed in the URL. Demo only (no backend).
+document.querySelectorAll('.auth-form').forEach(form => {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const isRegister = form.closest('#register-form');
+        showNotification(
+            isRegister
+                ? 'Account created successfully! (demo)'
+                : 'Signed in successfully! (demo)'
+        );
+        setTimeout(() => { window.location.href = 'account.html'; }, 1200);
+    });
+});
+
+// Account settings forms — demo save (previously did a broken page-reload submit).
+document.querySelectorAll('.settings-form').forEach(form => {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        showNotification('Changes saved successfully! (demo)');
     });
 });
 
