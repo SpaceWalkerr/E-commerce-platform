@@ -1,7 +1,4 @@
 {
-  "version": 2,
-  "name": "luxe-store",
-  "public": true,
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
